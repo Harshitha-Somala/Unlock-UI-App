@@ -5,7 +5,7 @@ from PIL import Image
 
 # Secret Key
 keys = {
-    "GOOGLE-API-KEY" : st.secrets["GOOGLE-API-KEY"]
+    "GOOGLE-API-KEY" : st.secrets["GOOGLE_API_KEY"]
 }
 
 # Configure API Key
