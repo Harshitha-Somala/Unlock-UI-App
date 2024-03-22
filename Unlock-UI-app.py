@@ -37,27 +37,27 @@ def main():
         
     # Sidebar with an About section and file uploader
     with st.sidebar:
-       # referred from https://github.com/wms31/streamlit-gemini/blob/main/app.py
+        st.subheader("About")   
+        st.write(":blue[**Unlock-UI**]: Unveil design secrets effortlessly! Upload your UI images and dive into an interactive chat experience. \
+                 Powered by Gemini-Pro-Vision, it comprehends every pixel, delivering accurate insights. Whether you're a designer or enthusiast, \
+                 Unlock-UI unlocks the mysteries of UI/UX design elements.")
+        
+        # referred from https://github.com/wms31/streamlit-gemini/blob/main/app.py
         if 'GOOGLE_API_KEY' in st.secrets:
             st.success('API key already provided!', icon='✅')
             api_key = st.secrets['GOOGLE_API_KEY']
         else:
-            api_key = st.text_input('Enter Google API Key:', type='password')
+            api_key = st.text_input('**Enter Google API Key..** ', type='password')
             if not (api_key.startswith('AI')):
                 st.warning('Please enter your API Key!', icon='⚠️')
             else:
                 st.success('Success!', icon='✅')
         os.environ['GOOGLE_API_KEY'] = api_key
-        "[Get a Google Gemini API key](https://ai.google.dev/)"
+        "[**Get a Google Gemini API key**](https://ai.google.dev/) 	:point_left:"
 
-        image_file = st.file_uploader("**Upload an image**.. :point_down:", type=['JPEG', 'JPG', 'PNG'])
+        image_file = st.file_uploader("**Upload an image**.. ", type=['JPEG', 'JPG', 'PNG'])
         image = ""
-        st.subheader("About")   
-        st.write(":blue[Unlock-UI] is your go-to app for unlocking the secrets behind website and app interfaces! \
-                With just a simple upload of your UI images, you'll dive into an interactive chat experience like never before. \
-                Powered by Gemini-Pro-Vision, our backend magic comprehends every pixel of your design, responding accurately to your questions. \
-                Whether you're a designer looking for insights or a curious enthusiast, Unlock-UI is your key to unraveling the mysteries of UI/UX design elements.")
-
+        
     # Style the sidebar
     css="""
     <style>
