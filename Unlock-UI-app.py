@@ -92,8 +92,12 @@ def main():
     input = st.chat_input("Your curiosity unlocks insights! Shoot your questions about image here..")
 
     if input:
-        if image == "":
-            st.error("Please upload an Image!")
+        if image == "" and api_key == "":
+            st.error(":warning: Please enter an API key and upload an image!")
+        elif image == "":
+            st.error(":warning: Please upload an image!")
+        elif api_key == "":
+            st.error(":warning: Please enter an API key!")
         else:
             st.session_state.chat_history.append({"role": "user", "content": input})
             with st.spinner("Generating response..."):
